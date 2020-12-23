@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/italians",
+      "handler": "italian.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/italians/count",
+      "handler": "italian.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/italians/:slug",
+      "handler": "italian.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/italians",
+      "handler": "italian.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/italians/:id",
+      "handler": "italian.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/italians/:id",
+      "handler": "italian.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
