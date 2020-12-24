@@ -16,10 +16,6 @@
       "required": true,
       "unique": true
     },
-    "content": {
-      "type": "text",
-      "required": true
-    },
     "image": {
       "model": "file",
       "via": "related",
@@ -32,6 +28,10 @@
     "slug": {
       "type": "uid",
       "targetField": "title",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
       "required": true
     }
   }
