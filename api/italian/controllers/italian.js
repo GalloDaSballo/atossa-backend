@@ -1,5 +1,4 @@
 "use strict";
-const { sanitizeEntity } = require("strapi-utils");
 /**
  * Read the documentation (https://strapi.io/documentation/v3.x/concepts/controllers.html#core-controllers)
  * to customize this controller
@@ -9,7 +8,14 @@ module.exports = {
   async findOne(ctx) {
     const { slug } = ctx.params;
 
-    const entity = await strapi.services.italian.findOne({ slug });
-    return sanitizeEntity(entity, { model: strapi.models.italian });
+    const poem = await strapi.services.italian.findOne({ slug });
+    const entities = await strapi.services.italian.find();
+
+    // removes current poem, since we don't want a poem that we are looking at to be
+    // under more poems.
+
+    const poems = entities.filter((poem) => poem.slug !== slug).slice(0, 2);
+
+    return { poem, poems };
   },
 };
